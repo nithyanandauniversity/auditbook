@@ -3,6 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
+server "globaltof.nithyananda.org", user: "webadmin", roles: %w{app db web}, primary: true
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
@@ -20,6 +21,14 @@
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
+role :app, %w{globaltof.nithyananda.org}
+role :web, %w{globaltof.nithyananda.org}
+role :db,  %w{globaltof.nithyananda.org}
+
+set :branch, 'master'
+# set :branch, 'master'
+set :deploy_to, '/var/www/auditbook'
+set :rails_env, :production
 
 
 
